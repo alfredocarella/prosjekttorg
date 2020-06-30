@@ -1,0 +1,22 @@
+### Python ###
+.pytest_cache/
+*.pyc
+
+
+### Django ###
+*.log
+*.pot
+__pycache__/
+local_settings.py
+db.sqlite3
+/static/
+
+
+### IDEs ###
+.idea/
+.vscode/*
+#!.vscode/settings.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
+#!.vscode/extensions.json
+.history
