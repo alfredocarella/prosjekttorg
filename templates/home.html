@@ -4,4 +4,11 @@
 
 {% block content %}
 <h1>Hjemmeside</h1>
+{% if user.is_authenticated %}
+  Hei {{ user.email }}! 
+  <p><a href="{% url 'logout' %}">Logg Ut</a></p>
+{% else %}
+  <p>Du er ikke logget inn</p>
+  <a href="{% url 'login' %}">Logg Inn</a> 
+{% endif %}
 {% endblock content %}
