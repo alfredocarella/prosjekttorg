@@ -9,6 +9,7 @@
   <p><a href="{% url 'logout' %}">Logg Ut</a></p>
 {% else %}
   <p>Du er ikke logget inn</p>
-  <a href="{% url 'login' %}">Logg Inn</a> 
+  <a href="{% url 'login' %}">Logg Inn</a>
+  <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 {% endblock content %}

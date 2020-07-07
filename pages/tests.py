@@ -12,9 +12,6 @@ class HomepageTests(SimpleTestCase):
     def test_homepage_returns_correct_status_code(self):
         self.assertEqual(self.response.status_code, 200)
 
-    def test_homepage_has_correct_url_name(self):
-        self.assertEqual(self.response.status_code, 200)
-
     def test_homepage_uses_home_template(self):
         self.assertTemplateUsed(self.response, "home.html")
 
