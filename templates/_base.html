@@ -20,9 +20,9 @@
             <a href="{% url 'home' %}" class="navbar-brand my-0 mr-md-auto font-weight-normal">Prosjekttorg</a>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="{% url 'info' %}">Info</a> {% if user.is_authenticated %}
-                <a class="p-2 text-dark" href="{% url 'logout' %}">Logg Ut</a> {% else %}
-                <a class="p-2 text-dark" href="{% url 'login' %}">Logg inn</a> <a class="btn btn-outline-primary"
-                    href="{% url 'signup' %}">Registrer deg</a> {% endif %}
+                <a class="p-2 text-dark" href="{% url 'account_logout' %}">Logg Ut</a> {% else %}
+                <a class="p-2 text-dark" href="{% url 'account_login' %}">Logg inn</a> <a class="btn btn-outline-primary"
+                    href="{% url 'account_signup' %}">Registrer deg</a> {% endif %}
             </nav>
         </div>
     </header>
