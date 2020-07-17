@@ -1,13 +1,14 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
+<!-- TODO: Add a link to the password_reset view from LogIn-view. Test. https://django-allauth.readthedocs.io/en/latest/views.html#password-reset-account-reset-password  -->
 
-{% block title %}Log In{% endblock title %}
+{% block title %}Logg inn{% endblock title %}
 
 {% block content %} 
-<h2>Logg Inn</h2> 
+<h2>Logg inn</h2>
 <form method="post">
   {% csrf_token %}
   {{ form|crispy }}
-  <button class="btn btn-success" type="submit">Logg Inn</button>
+  <button class="btn btn-success" type="submit">Logg inn</button>
 </form>
 {% endblock content %}
