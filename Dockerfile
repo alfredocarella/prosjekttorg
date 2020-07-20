@@ -14,3 +14,7 @@ RUN pip install pipenv && pipenv install --system
 
 # Copy project 
 COPY . /code/
+
+# collect static files
+RUN mkdir -p /code/staticfiles
+RUN python manage.py collectstatic --noinput
