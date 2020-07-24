@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="project-detail">
+    {% if project.image %}
+    <img class="projectcover" src="{{ project.image.url}}" alt="{{ project.title }}">
+    {% endif %}
     <h2><a href="">{{ project.title }}</a></h2>
     <p>Owner: {{ project.owner }}</p>
     <p>Description: {{ project.description }}</p>

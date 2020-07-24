@@ -11,6 +11,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     owner = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='projects/images/', blank=True)
 
     def __str__(self):
         return self.title
