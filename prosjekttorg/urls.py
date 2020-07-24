@@ -27,6 +27,7 @@ urlpatterns = [
 
     # Local apps
     path("", include("pages.urls")),
+    path('projects/', include('projects.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
