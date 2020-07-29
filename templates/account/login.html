@@ -1,6 +1,5 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
-<!-- TODO: Add a link to the password_reset view from LogIn-view. Test. https://django-allauth.readthedocs.io/en/latest/views.html#password-reset-account-reset-password  -->
 
 {% block title %}Logg inn{% endblock title %}
 
@@ -11,4 +10,6 @@
   {{ form|crispy }}
   <button class="btn btn-success" type="submit">Logg inn</button>
 </form>
+<br>
+<a href="{% url 'account_reset_password' %}">Har du glemt ditt passord?</a>
 {% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Bekreft din e-postadresse" %}{% endblock %}
+
+
+{% block content %}
+<h1>{% trans "Bekreft din e-postadresse" %}</h1>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+<p>{% blocktrans with confirmation.email_address.email as email %}Jeg bekrefter at jeg vil knytte e-postadressen <a href="mailto:{{ email }}">{{ email }}</a> til denne kontoen.{% endblocktrans %}</p>
+
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+{% csrf_token %}
+    <button class="btn btn-success" type="submit">{% trans 'Bekreft' %}</button>
+</form>
+
+{% else %}
+
+{% url 'account_email' as email_url %}
+
+<p>{% blocktrans %}Denne lenken er utløpt og kan ikke lenger brukes til å verifisere e-postadressen. Du kan <a href="{{ email_url }}">be om å få sendt en ny lenke</a>.{% endblocktrans %}</p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Bekreft din e-postadresse" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Bekreft din e-postadresse" %}</h1>
+
+{% url 'account_email' as email_url %}
+
+<p>{% blocktrans %}Denne delen av nettstedet krever at vi bekrefter
+at du er den du påstår å være. For dette formålet krever vi at du
+bekrefter eierskap til e-postadressen din.{% endblocktrans %}</p>
+
+<p>{% blocktrans %}Vi har sendt deg en e-post for bekreftelse.
+Vennligst klikk på den vedlagte lenken. Ta kontakt med oss hvis du 
+ikke mottar den innen noen minutter.{% endblocktrans %}</p>
+
+<p>{% blocktrans %}<strong>NB:</strong> du kan fortsatt <a href="{{ email_url }}">endre din e-postadresse</a>.{% endblocktrans %}</p>
+
+
+{% endblock %}
