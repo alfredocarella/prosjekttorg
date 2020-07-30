@@ -180,6 +180,10 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 3600  # 1 hour in seconds
+ACCOUNT_FORMS = {
+    'login': 'users.forms.MyCustomLoginForm',
+    'signup':'users.forms.MyCustomSignupForm'
+}
 
 SITE_ID = 1
 
