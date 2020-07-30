@@ -1,4 +1,5 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}{{ project.title }}{% endblock title %}
 
@@ -8,7 +9,7 @@
     <img class="projectcover" src="{{ project.image.url}}" alt="{{ project.title }}">
     {% endif %}
     <h2><a href="">{{ project.title }}</a></h2>
-    <p>Owner: {{ project.owner }}</p>
-    <p>Description: {{ project.description }}</p>
+    <p>{% trans 'Owner' %}: {{ project.owner }}</p>
+    <p>{% trans 'Description' %}: {{ project.description }}</p>
 </div>
 {% endblock content %}

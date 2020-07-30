@@ -1,6 +1,7 @@
-{% extends '_base.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Prosjekter{% endblock title %}
+{% block title %}{% trans 'Projects' %}{% endblock title %}
 
 {% block content %}
 {% for project in project_list %}

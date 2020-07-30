@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -22,13 +23,13 @@
         mb-3 bg-white border-bottom shadow-sm">
             <a href="{% url 'home' %}" class="navbar-brand my-0 mr-md-auto font-weight-normal">Prosjekttorg</a>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="{% url 'project_list' %}">Prosjekter</a>
-                <a class="p-2 text-dark" href="{% url 'info' %}">Info</a>
+                <a class="p-2 text-dark" href="{% url 'project_list' %}">{% trans 'Projects' %}</a>
+                <a class="p-2 text-dark" href="{% url 'info' %}">{% trans 'About' %}</a>
                 {% if user.is_authenticated %}
-                    <a class="p-2 text-dark" href="{% url 'account_logout' %}">Logg ut</a>
+                    <a class="p-2 text-dark" href="{% url 'account_logout' %}">{% trans 'Log out' %}</a>
                 {% else %}
-                    <a class="p-2 text-dark" href="{% url 'account_login' %}">Logg inn</a> <a class="btn btn-outline-primary"
-                    href="{% url 'account_signup' %}">Registrer deg</a>
+                    <a class="p-2 text-dark" href="{% url 'account_login' %}">{% trans 'Log in' %}</a> <a class="btn btn-outline-primary"
+                    href="{% url 'account_signup' %}">{% trans 'Sign up' %}</a>
                 {% endif %}
             </nav>
         </div>

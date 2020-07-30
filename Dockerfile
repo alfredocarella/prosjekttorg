@@ -8,6 +8,9 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory
 WORKDIR /code
 
+# Only to generate translation strings. Could be removed in production.
+RUN apt update && apt install -y gettext
+
 # Install dependencies
 COPY Pipfile Pipfile.lock /code/
 RUN pip install pipenv && pipenv install --system
@@ -15,6 +18,9 @@ RUN pip install pipenv && pipenv install --system
 # Copy project 
 COPY . /code/
 
-# collect static files
+# Compile (new) translation strings
+RUN python manage.py compilemessages
+
+# Collect static files
 RUN mkdir -p /code/staticfiles
 RUN python manage.py collectstatic --noinput
