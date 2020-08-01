@@ -4,9 +4,47 @@
 {% block title %}{% trans 'Projects' %}{% endblock title %}
 
 {% block content %}
-{% for project in project_list %}
-<div>
-    <h2><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h2>
+
+
+
+<h2 class="mt-5">{% trans 'Available projects' %}</h2>
+<div class="row">
+  {% for project in project_list %}
+  <div class="col-lg-4 col-md-6">
+    <div class="hovereffect d-flex align-items-stretch">
+      <div class="card rounded">
+        <img class="card-img-top" src="{{ project.image.url }}">
+        {% if project.description or project.description_file %}
+        <div class="overlay">
+          <a class="info" href="{% url 'project_detail' project.id %}">{% trans 'Learn more' %}</a>
+          <br>
+        </div>
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">{{ project.description|striptags|truncatechars:200|safe }}</p>
+          
+
+          {% comment %}
+          {% if project.user == LOGGEDINUSER %}
+          <a href="{% url 'project_update' project.id %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+          <a href="{% url 'project_delete' project.id %}" class="btn btn-danger">{% trans 'Delete' %}</a>      
+          {% endif %}
+          {% endcomment %}
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
+
+
+
+
+
+<br>
+<a href="{% url 'project_create' %}" class="btn btn-primary">{% trans 'Create a new Project' %}</a>
+
 {% endblock content %}

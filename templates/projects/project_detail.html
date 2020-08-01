@@ -11,5 +11,7 @@
     <h2><a href="">{{ project.title }}</a></h2>
     <p>{% trans 'Owner' %}: {{ project.user }}</p>
     <p>{% trans 'Description' %}: {{ project.description }}</p>
-</div>
+    <a href="{% url 'project_update' project.id %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+    <a href="{% url 'project_delete' project.id %}" class="btn btn-danger">{% trans 'Delete' %}</a>
+    </div>
 {% endblock content %}

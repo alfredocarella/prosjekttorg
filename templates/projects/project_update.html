@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans 'Update Project' %}{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h2>{% trans 'Update Project' %}</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button class="btn btn-success" type="submit">{% trans 'Save' %}</button>
+</form>
+<br>
+<a href="{% url 'project_delete' project.id %}" class="btn btn-danger">{% trans 'Delete this Project' %}</a>
+</div>
+{% endblock %}
