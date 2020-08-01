@@ -3,7 +3,7 @@ from django.contrib.auth.models import Permission
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from .models import Project
+from .models import Course, Project
 
 
 class ProjectTests(TestCase):
@@ -13,17 +13,26 @@ class ProjectTests(TestCase):
             email='newuser@email.com',
             password='testpass123'
         )
+        self.course = Course.objects.create(
+            code='MAPE1300',
+            name='Mekanikk'
+        )
         self.project = Project.objects.create(
             title="A moonshot",
             description="The Baltimore Gun Club wants shoot the Moon.",
-            owner="Alfredo C.",
+            user=self.user,
         )
+        self.project.courses.add(self.course)
 
     def test_project_entry(self):
         self.assertEqual(f'{self.project.title}', 'A moonshot')
         self.assertEqual(f'{self.project.description}',
         "The Baltimore Gun Club wants shoot the Moon.")
-        self.assertEqual(f'{self.project.owner}', 'Alfredo C.')
+        self.assertEqual(f'{self.project.user.email}', 'newuser@email.com')
+        courses = self.project.courses.all()
+        self.assertEqual(len(courses), 1)
+        self.assertEqual(f'{courses[0].code}', 'MAPE1300')
+        self.assertEqual(f'{courses[0].name}', 'Mekanikk')
 
     def test_project_list_view_for_logged_in_user(self):
         self.client.login(email='newuser@email.com', password='testpass123')

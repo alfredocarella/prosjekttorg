@@ -9,7 +9,7 @@
     <img class="projectcover" src="{{ project.image.url}}" alt="{{ project.title }}">
     {% endif %}
     <h2><a href="">{{ project.title }}</a></h2>
-    <p>{% trans 'Owner' %}: {{ project.owner }}</p>
+    <p>{% trans 'Owner' %}: {{ project.user }}</p>
     <p>{% trans 'Description' %}: {{ project.description }}</p>
 </div>
 {% endblock content %}
