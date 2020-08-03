@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 10:32+0000\n"
+"POT-Creation-Date: 2020-08-03 10:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,6 @@ msgstr "Norsk"
 
 #: templates/account/login.html:6 templates/account/login.html:9
 #: templates/account/login.html:13 templates/base.html:31
-#: templates/home.html:13
 msgid "Log in"
 msgstr "Logg inn"
 
@@ -37,7 +36,6 @@ msgstr "Har du glemt passordet ditt?"
 
 #: templates/account/logout.html:5 templates/account/logout.html:8
 #: templates/account/logout.html:13 templates/base.html:29
-#: templates/home.html:10
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -47,25 +45,71 @@ msgstr "Er du sikker på at du vil logge deg ut?"
 
 #: templates/account/signup.html:6 templates/account/signup.html:9
 #: templates/account/signup.html:13 templates/base.html:32
-#: templates/home.html:14
 msgid "Sign up"
 msgstr "Registrer deg"
 
-#: templates/base.html:26 templates/projects/project_list.html:4
-msgid "Projects"
-msgstr "Prosjekter"
+#: templates/base.html:26
+msgid "Dashboard"
+msgstr "Dashbord"
 
 #: templates/base.html:27 templates/info.html:4 templates/info.html:7
 msgid "About"
 msgstr "Info"
 
-#: templates/home.html:4 templates/home.html:7
+#: templates/home.html:5
 msgid "Home"
 msgstr "Hjemmeside"
 
 #: templates/home.html:12
-msgid "You are not logged in"
-msgstr "Du er ikke logget inn"
+msgid "Assembling your team has just become easier"
+msgstr ""
+
+#: templates/home.html:13
+msgid "Log in to explore, join a team, or pitch your own idea."
+msgstr ""
+
+#: templates/home.html:14 templates/projects/dashboard.html:10
+msgid "Available projects"
+msgstr ""
+
+#: templates/info.html:8
+msgid ""
+"Here are the rules, guidelines and recommendations for how to use this page "
+"correctly."
+msgstr ""
+
+#: templates/projects/dashboard.html:4
+msgid "Projects"
+msgstr ""
+
+#: templates/projects/dashboard.html:19
+msgid "Learn more"
+msgstr ""
+
+#: templates/projects/dashboard.html:49
+#: templates/projects/project_create.html:5
+#: templates/projects/project_create.html:9
+msgid "Create a new Project"
+msgstr ""
+
+#: templates/projects/project_create.html:13
+msgid "Create"
+msgstr ""
+
+#: templates/projects/project_delete.html:5
+msgid "Delete Project"
+msgstr ""
+
+#: templates/projects/project_delete.html:9
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Are you sure you want to delete this Project?"
+msgstr "Er du sikker på at du vil logge deg ut?"
+
+#: templates/projects/project_delete.html:13
+#: templates/projects/project_detail.html:15
+msgid "Delete"
+msgstr ""
 
 #: templates/projects/project_detail.html:12
 msgid "Owner"
@@ -74,3 +118,23 @@ msgstr "Prosjekteier"
 #: templates/projects/project_detail.html:13
 msgid "Description"
 msgstr "Prosjektbeskrivelse"
+
+#: templates/projects/project_detail.html:14
+msgid "Edit"
+msgstr ""
+
+#: templates/projects/project_update.html:5
+#: templates/projects/project_update.html:9
+msgid "Update Project"
+msgstr ""
+
+#: templates/projects/project_update.html:13
+msgid "Save"
+msgstr ""
+
+#: templates/projects/project_update.html:16
+msgid "Delete this Project"
+msgstr ""
+
+#~ msgid "You are not logged in"
+#~ msgstr "Du er ikke logget inn"

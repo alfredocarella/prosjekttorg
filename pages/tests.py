@@ -16,13 +16,13 @@ class HomepageTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, "home.html")
 
     def test_homepage_english_contains_correct_language(self):
-        self.assertContains(self.response, "Projects")
-        self.assertNotContains(self.response, "Prosjekter")
+        self.assertContains(self.response, "Dashboard")
+        self.assertNotContains(self.response, "Dashbord")
 
     def test_homepage_norwegian_contains_correct_language(self):
         url = reverse("home")
         response = self.client.get(url, HTTP_ACCEPT_LANGUAGE='no')
-        self.assertContains(response, "Prosjekter")
+        self.assertContains(response, "Dashbord")
 
     def test_homepage_url_resolves_homepageview(self):
         view = resolve("/")

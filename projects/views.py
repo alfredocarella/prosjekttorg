@@ -10,7 +10,7 @@ from .models import Project
 class ProjectListView(LoginRequiredMixin, ListView):
     model = Project
     context_object_name = 'project_list'
-    template_name = 'projects/project_list.html'
+    template_name = 'projects/dashboard.html'
     login_url = 'account_login'
 
 
@@ -46,7 +46,7 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'projects/project_delete.html'
-    success_url = reverse_lazy('project_list')
+    success_url = reverse_lazy('dashboard')
 
     def get_object(self):
         project = super(ProjectDeleteView, self).get_object()

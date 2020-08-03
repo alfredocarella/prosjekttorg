@@ -3,7 +3,7 @@ from .views import ProjectListView, ProjectDetailView, ProjectCreateView, Projec
 
 
 urlpatterns = [
-    path('', ProjectListView.as_view(), name='project_list'),
+    path('', ProjectListView.as_view(), name='dashboard'),
     path('create/', ProjectCreateView.as_view(), name='project_create'),
     path('<uuid:pk>', ProjectDetailView.as_view(), name='project_detail'),
     path('<uuid:pk>/update', ProjectUpdateView.as_view(), name='project_update'),

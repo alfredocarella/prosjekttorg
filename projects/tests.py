@@ -34,16 +34,16 @@ class ProjectTests(TestCase):
         self.assertEqual(f'{courses[0].code}', 'MAPE1300')
         self.assertEqual(f'{courses[0].name}', 'Mekanikk')
 
-    def test_project_list_view_for_logged_in_user(self):
+    def test_dashboard_view_for_logged_in_user(self):
         self.client.login(email='newuser@email.com', password='testpass123')
-        response = self.client.get(reverse('project_list'))
+        response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'A moonshot')
-        self.assertTemplateUsed(response, 'projects/project_list.html')
+        self.assertTemplateUsed(response, 'projects/dashboard.html')
 
-    def test_project_list_view_for_logged_out_user(self):
+    def test_dashboard_view_for_logged_out_user(self):
         self.client.logout()
-        response = self.client.get(reverse('project_list'))
+        response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, f'{reverse("account_login")}?next=/projects/')
         response = self.client.get(f'{reverse("account_login")}?next=/projects/')
