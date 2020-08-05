@@ -4,7 +4,20 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Project
+from .models import Course, Project
+
+
+class HomeView(ListView):
+    model = Course
+    context_object_name = 'course_list'
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet for all published projects
+        context['project_list'] = Project.objects.filter(published=True)
+        return context
 
 
 class ProjectListView(LoginRequiredMixin, ListView):

@@ -11,25 +11,111 @@
   <div class="container-fluid">
     <h1>{% trans 'Assembling your team has just become easier' %}</h1>
     <p class="lead"><b>{% trans 'Log in to explore, join a team, or pitch your own idea.' %}</b></p>
-    <p><a class="btn btn-dark btn-lg" href="{% url 'dashboard' %}" role="button">{% trans 'Available projects' %}
+    <p><a class="btn btn-dark btn-lg" href="{% url 'info' %}" role="button">{% trans 'How it works' %}
         &raquo;</a></p>
   </div>
 </div>
 
 
 
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="ALL-tab" data-toggle="tab" href="#ALL" role="tab" aria-controls="ALL" aria-selected="true">All projects</a>
+  </li>
+{% for course in course_list %}
+  {% if course.project_set.all %}
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="{{ course.code }}-tab" data-toggle="tab" href="#{{ course.code }}" role="tab" aria-controls="{{ course.code }}" aria-selected="false">{{ course.name }}</a>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="ALL" role="tabpanel" aria-labelledby="ALL-tab">
+    <div class="row">
+      {% for project in project_list %}
+      <div class="col-lg-4 col-md-6">
+        <div class="hovereffect d-flex align-items-stretch">
+          <div class="card rounded">
+            {% if project.image %}
+            <img class="card-img-top" src="{{ project.image.url }}">
+            {% endif %}
+            <div class="overlay">
+              <a class="info" href="{% url 'project_detail' project.id %}">{% trans 'Learn more' %}</a>
+              <br>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text">{{ project.description|striptags|truncatechars:200|safe }}</p>
+
+              {% if project.user.email == user.email %}
+              <a href="{% url 'project_update' project.id %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+              <a href="{% url 'project_delete' project.id %}" class="btn btn-danger">{% trans 'Delete' %}</a>      
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  {% for course in course_list %}
+  {% if course.project_set.all %}
+  <div class="tab-pane fade" id="{{ course.code }}" role="tabpanel" aria-labelledby="{{ course.code }}-tab">
+    <div class="row">
+      {% for project in course.project_set.all %}
+      {% if project.published %}
+      <div class="col-lg-4 col-md-6">
+        <div class="hovereffect d-flex align-items-stretch">
+          <div class="card rounded">
+            {% if project.image %}
+            <img class="card-img-top" src="{{ project.image.url }}">
+            {% endif %}
+            <div class="overlay">
+              <a class="info" href="{% url 'project_detail' project.id %}">{% trans 'Learn more' %}</a>
+              <br>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text">{{ project.description|striptags|truncatechars:200|safe }}</p>
+
+              {% if project.user.email == user.email %}
+              <a href="{% url 'project_update' project.id %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+              <a href="{% url 'project_delete' project.id %}" class="btn btn-danger">{% trans 'Delete' %}</a>      
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+{% endif %}
+{% endfor %}
+</div>
+
+<br>
+<a href="{% url 'project_create' %}" class="btn btn-success">{% trans '+ Create a new Project' %}</a>
+
 
 {% comment %}
 
-<h1>{% trans 'Home' %}</h1>
-{% if user.is_authenticated %}
-Hei {{ user.email }}!
-<p><a href="{% url 'account_logout' %}">{% trans 'Log out' %}</a></p>
-{% else %}
-<p>{% trans 'You are not logged in' %}</p>
-<a href="{% url 'account_login' %}">{% trans 'Log in' %}</a>
-<a href="{% url 'account_signup' %}">{% trans 'Sign up' %}</a>
-{% endif %}
+<h2 class="mt-5">To-do:</h2>
+<ul>
+  <li>Provide default image for projects that don't have one</li>
+  <li>Make the jumbotron full-width</li>
+  <li>Test, and write test-backlog</li>
+  <li>Show user-email in navbar ('Dashboard' and 'logout' should be inside a Dropdown menu).</li>
+  <li>Create seed_data.json</li>
+  <li>Restrict access to username@oslomet.no e-mails</li>
+  <li>Enable TinyMCE for editing project descriptions</li>
+</ul>
 
 {% endcomment %}
 

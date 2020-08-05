@@ -18,6 +18,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from projects.views import HomeView
 
 urlpatterns = [
     # Django admin
@@ -27,8 +28,10 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
     # Local apps
+    path("", HomeView.as_view(), name="home"),
     path("", include("pages.urls")),
     path('projects/', include('projects.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
