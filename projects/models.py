@@ -26,7 +26,7 @@ class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(blank=False)
     image = models.ImageField(upload_to='projects/images/', blank=True)
     published = models.BooleanField(default=False)
 

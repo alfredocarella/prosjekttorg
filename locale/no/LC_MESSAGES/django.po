@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 10:25+0200\n"
+"POT-Creation-Date: 2020-08-05 20:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,13 +48,13 @@ msgstr "Er du sikker på at du vil logge deg ut?"
 msgid "Sign up"
 msgstr "Registrer deg"
 
-#: templates/base.html:26
-msgid "Dashboard"
-msgstr "Dashbord"
-
-#: templates/base.html:27 templates/info.html:4 templates/info.html:7
+#: templates/base.html:26 templates/info.html:4 templates/info.html:7
 msgid "About"
 msgstr "Info"
+
+#: templates/base.html:28
+msgid "Dashboard"
+msgstr "Dashbord"
 
 #: templates/home.html:5
 msgid "Home"
@@ -62,15 +62,37 @@ msgstr "Hjemmeside"
 
 #: templates/home.html:12
 msgid "Assembling your team has just become easier"
-msgstr ""
+msgstr "Nå har det blitt lettere å finne et godt team"
 
 #: templates/home.html:13
 msgid "Log in to explore, join a team, or pitch your own idea."
-msgstr ""
+msgstr "Logg inn for å utforske, bli med på et team, eller markedsføre din idé"
 
-#: templates/home.html:14 templates/projects/dashboard.html:10
-msgid "Available projects"
-msgstr ""
+#: templates/home.html:14
+msgid "How it works"
+msgstr "Sånn fungerer det"
+
+#: templates/home.html:45 templates/home.html:78
+#: templates/projects/dashboard.html:21
+msgid "Learn more"
+msgstr "Lær mer"
+
+#: templates/home.html:53 templates/home.html:86
+#: templates/projects/dashboard.html:29
+#: templates/projects/project_detail.html:14
+msgid "Edit"
+msgstr "Rediger"
+
+#: templates/home.html:54 templates/home.html:87
+#: templates/projects/dashboard.html:30
+#: templates/projects/project_delete.html:13
+#: templates/projects/project_detail.html:15
+msgid "Delete"
+msgstr "Slett"
+
+#: templates/home.html:104
+msgid "+ Create a new Project"
+msgstr "+ Opprett et nytt Prosjekt"
 
 #: templates/info.html:8
 msgid ""
@@ -80,36 +102,31 @@ msgstr ""
 
 #: templates/projects/dashboard.html:4
 msgid "Projects"
-msgstr ""
+msgstr "Prosjekter"
 
-#: templates/projects/dashboard.html:19
-msgid "Learn more"
-msgstr ""
+#: templates/projects/dashboard.html:10
+msgid "My projects"
+msgstr "Mine prosjekter"
 
-#: templates/projects/dashboard.html:49
+#: templates/projects/dashboard.html:41
 #: templates/projects/project_create.html:5
 #: templates/projects/project_create.html:9
 msgid "Create a new Project"
-msgstr ""
+msgstr "Opprett et nytt prosjekt"
 
 #: templates/projects/project_create.html:13
 msgid "Create"
-msgstr ""
+msgstr "Opprett"
 
 #: templates/projects/project_delete.html:5
 msgid "Delete Project"
-msgstr ""
+msgstr "Slett Prosjekt"
 
 #: templates/projects/project_delete.html:9
 #, fuzzy
 #| msgid "Are you sure you want to log out?"
 msgid "Are you sure you want to delete this Project?"
 msgstr "Er du sikker på at du vil logge deg ut?"
-
-#: templates/projects/project_delete.html:13
-#: templates/projects/project_detail.html:15
-msgid "Delete"
-msgstr ""
 
 #: templates/projects/project_detail.html:12
 msgid "Owner"
@@ -119,22 +136,18 @@ msgstr "Prosjekteier"
 msgid "Description"
 msgstr "Prosjektbeskrivelse"
 
-#: templates/projects/project_detail.html:14
-msgid "Edit"
-msgstr ""
-
 #: templates/projects/project_update.html:5
 #: templates/projects/project_update.html:9
 msgid "Update Project"
-msgstr ""
+msgstr "Oppdater Prosjekt"
 
 #: templates/projects/project_update.html:13
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: templates/projects/project_update.html:16
 msgid "Delete this Project"
-msgstr ""
+msgstr "Slett dete Prosjektet"
 
 #~ msgid "You are not logged in"
 #~ msgstr "Du er ikke logget inn"
