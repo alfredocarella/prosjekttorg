@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
+{% comment %}{% load static %}{% endcomment %}
 {% load i18n %}
-
 
 {% block title %}{% trans 'Home' %}{% endblock title %}
 
 {% block content %}
 
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container-fluid">
+<div class="jumbotron jumbotron-fluid" style="background-color:#e9ecef;">
+  <div class="container">
     <h1>{% trans 'Assembling your team has just become easier' %}</h1>
-    <p class="lead"><b>{% trans 'Log in to explore, join a team, or pitch your own idea.' %}</b></p>
+    <p class="lead"><b>{% trans 'Log in to join a team, or simply pitch your own idea.' %}</b></p>
     <p><a class="btn btn-dark btn-lg" href="{% url 'info' %}" role="button">{% trans 'How it works' %}
         &raquo;</a></p>
   </div>

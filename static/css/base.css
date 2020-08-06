@@ -7,6 +7,16 @@ h1 {
 
 
 
+.jumbotron {
+  background: fixed center no-repeat;
+  background-size: cover;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
 
 
 .hovereffect {
