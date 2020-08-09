@@ -1,4 +1,5 @@
 import uuid
+from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
@@ -27,7 +28,7 @@ class Project(models.Model):
     modified = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=False)
-    image = models.ImageField(upload_to='projects/images/', blank=True)
+    image = CloudinaryField('image', blank=True)
     published = models.BooleanField(default=False)
 
     def __str__(self) -> str:
