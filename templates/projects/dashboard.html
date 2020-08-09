@@ -12,15 +12,11 @@
   {% for project in project_list %}
   {% if project.user.email == user.email %}
   <div class="col-lg-4 col-md-6">
-    <div class="hovereffect d-flex align-items-stretch">
+    <div class="d-flex align-items-stretch">
       <div class="card rounded">
         {% if project.image %}
         <img class="card-img-top" src="{{ project.image.url }}">
         {% endif %}
-        <div class="overlay">
-          <a class="info" href="{% url 'project_detail' project.id %}">{% trans 'Learn more' %}</a>
-          <br>
-        </div>
 
         <div class="card-body">
           <h5 class="card-title">{{ project.title }}</h5>
@@ -38,7 +34,7 @@
 </div>
 
 <br>
-<a href="{% url 'project_create' %}" class="btn btn-primary">{% trans 'Create a new Project' %}</a>
+<a href="{% url 'project_create' %}" class="btn btn-success">{% trans 'Create a new Project' %}</a>
 
 
 {% comment %} Try this with hoverlens (instead of hovereffect)
