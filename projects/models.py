@@ -29,7 +29,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=False)
     image = CloudinaryField('image', blank=True)
-    published = models.BooleanField(default=False)
+    publish = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.title

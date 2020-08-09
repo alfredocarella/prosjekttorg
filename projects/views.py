@@ -16,7 +16,7 @@ class HomeView(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet for all published projects
-        context['project_list'] = Project.objects.filter(published=True)
+        context['project_list'] = Project.objects.filter(publish=True)
         return context
 
 
@@ -36,7 +36,7 @@ class ProjectDetailView(LoginRequiredMixin, DetailView):
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['title', 'description', 'image', 'courses']
+    fields = ['title', 'description', 'image', 'courses', 'publish']
     template_name = 'projects/project_create.html'
 
     def form_valid(self, form):
@@ -46,7 +46,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['title', 'description', 'image', 'courses']
+    fields = ['title', 'description', 'image', 'courses', 'publish']
     template_name = 'projects/project_update.html'
 
     def get_object(self):
