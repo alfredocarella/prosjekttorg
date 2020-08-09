@@ -3,6 +3,7 @@ from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+from tinymce.models import HTMLField
 
 
 class Course(models.Model):
@@ -27,7 +28,7 @@ class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=False)
+    description = HTMLField()
     image = CloudinaryField('image', blank=True)
     publish = models.BooleanField(default=False)
 

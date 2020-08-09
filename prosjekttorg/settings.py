@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'cloudinary',
+    'tinymce',
 
     # Local
     'users.apps.UsersConfig',
