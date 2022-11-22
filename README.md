@@ -60,5 +60,3 @@ The platform will:
 
 ## Project timeline
 *Prosjekttorg* is still an idea, and has not acquired project status. As such, its development is conditioned to my obtaining funding or meeting interested contributors.
-
-If you have read so far and are interested in taking a look, there is a proof of concept running at [prosjekttorg.com](https://damp-fjord-48681.herokuapp.com/).
